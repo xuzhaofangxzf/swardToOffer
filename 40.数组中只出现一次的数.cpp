@@ -36,13 +36,21 @@ public:
     {
         int bitmask = 0;
         for (const int d : data) bitmask ^= d; //得到x ^ y
+        //int diff = bitmask & (-bitmask);
         int xory = 0;
         for (const int d: data)
         {
-            if (d & bitmask != 0) //保证不能是0 ^ x (x ^ y) ^y
+            if ((d & bitmask) != 0)
             {
                 xory ^= d; //与逐个元素再重新异或,为了找到x或者y
             }
+            else
+            {
+                xory = d;
+                break;
+            }
+            
+            
         }
         *num1 = xory;
         *num2 = xory ^ bitmask;
