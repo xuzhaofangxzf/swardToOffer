@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 //二叉树的深度
 #include <iostream>
 #include <queue>
@@ -43,4 +44,3 @@ public:
         return level;
     }
 
-};

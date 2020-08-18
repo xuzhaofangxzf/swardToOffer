@@ -7,11 +7,27 @@
 using namespace std;
 
 
+
 class Solution {
 public:
     int GetUglyNumber_Solution(int index) {
-    
-    }
 
-    //判断是否丑数
+        int base2 = 0, base3 = 0, base5 = 0;
+        int* uglyNumbers = new int[index];
+        uglyNumbers[0] = 1;
+        for (int i = 1; i < index; i++)
+        {
+            int n2 = uglyNumbers[base2] * 2;
+            int n3 = uglyNumbers[base3] * 3;
+            int n5 = uglyNumbers[base5] * 5;
+            uglyNumbers[i] = min(min(n2, n3), n5); //取最小值
+            if(uglyNumbers[i] == n2) base2++;
+            if(uglyNumers[i] == n3) base3++;
+            if(uglyNumers[i] == n5) base5++;
+
+        }
+
+        return uglyNumbers[index - 1];
+        
+    }
 };
